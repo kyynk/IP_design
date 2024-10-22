@@ -2,35 +2,38 @@ using UnityEngine;
 
 namespace FSMBulb
 {
-    public enum STATE
-    {
-        ON,
-        OFF,
-        BROKEN
-    }
-
-    public class Bulb_01 : MonoBehaviour
+    public class Bulb_02 : MonoBehaviour
     {
         public STATE state;
         private Light pLight;
+        private bool triggerEnter;
 
         void Start()
         {
             pLight = GetComponentInChildren<Light>();
+            triggerEnter = false;
         }
 
         void Update()
         {
-            switch (state) {
+            switch (state)
+            {
                 case STATE.ON:
-                    pLight.enabled = true;
+                    if (triggerEnter)
+                    {
+                        pLight.enabled = true;
+                    }
                     break;
                 case STATE.OFF:
-                    pLight.enabled = false;
+                    if (triggerEnter)
+                    {
+                        pLight.enabled = false;
+                    }
                     break;
                 default:
                     break;
             }
+            triggerEnter = false;
         }
 
         private void OnMouseDown()
@@ -48,6 +51,7 @@ namespace FSMBulb
         private void GoToState(STATE targetState)
         {
             state = targetState;
+            triggerEnter = true;
         }
     }
 }
