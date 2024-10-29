@@ -605,32 +605,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a02cb851ed0cd3f45961c68db16cbba4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 794836208}
+      addedObject: {fileID: 794836209}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a02cb851ed0cd3f45961c68db16cbba4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 794836209}
+      addedObject: {fileID: 794836213}
   m_SourcePrefab: {fileID: 100100000, guid: a02cb851ed0cd3f45961c68db16cbba4, type: 3}
 --- !u!4 &794836201 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a02cb851ed0cd3f45961c68db16cbba4, type: 3}
   m_PrefabInstance: {fileID: 794836200}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &794836208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160827406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f34961e28d2ce48a8e9eb7fd52838f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  matNormal: {fileID: 2100000, guid: 4f5c430d58de6064f9a554a4fc1415ca, type: 2}
-  matBroken: {fileID: 2100000, guid: 5a1b89c2e5cabcf4690f2b6af141c28b, type: 2}
-  hp: 0
 --- !u!114 &794836209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +627,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2f7be7ad61fdf40990e57a209a965b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  c:
+    light: {fileID: 0}
+    meshRenderer: {fileID: 0}
+    matNormal: {fileID: 2100000, guid: 4f5c430d58de6064f9a554a4fc1415ca, type: 2}
+    matBroken: {fileID: 2100000, guid: 5a1b89c2e5cabcf4690f2b6af141c28b, type: 2}
+    hp: 0
+    evtTouch:
+      m_PersistentCalls:
+        m_Calls: []
+    sensor: {fileID: 794836213}
+--- !u!114 &794836213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160827406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d36c81a952507a4caae054e69b1cd9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c:
+    light: {fileID: 0}
+    meshRenderer: {fileID: 0}
+    matNormal: {fileID: 0}
+    matBroken: {fileID: 0}
+    hp: 0
+    evtTouch:
+      m_PersistentCalls:
+        m_Calls: []
+    sensor: {fileID: 0}
 --- !u!1 &919354906
 GameObject:
   m_ObjectHideFlags: 0
