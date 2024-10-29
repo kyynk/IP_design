@@ -8,7 +8,10 @@ namespace FSMBulb
 
         public override void OnEnter()
         {
-            Debug.Log("StateOn: OnEnter.");
+            machine.c.TurnLight(true);
+            machine.c.ChangeMaterial(machine.c.matNormal);
+            machine.c.evtTouch.AddListener(OnMouseDown);
+            //Debug.Log("StateOn: OnEnter.");
         }
 
         public override void IsState()
@@ -17,12 +20,18 @@ namespace FSMBulb
             {
                 machine.GoToState(new StateOff(machine));
             }
-            Debug.Log("StateOn: IsState.");
+            //Debug.Log("StateOn: IsState.");
         }
 
         public override void OnExit()
         {
-            Debug.Log("StateOn: OnExit.");
+            machine.c.evtTouch.RemoveListener(OnMouseDown);
+            //Debug.Log("StateOn: OnExit.");
+        }
+
+        public void OnMouseDown()
+        {
+            machine.GoToState(new StateOff(machine));
         }
     }
 }

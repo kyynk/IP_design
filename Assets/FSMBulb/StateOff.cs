@@ -8,21 +8,46 @@ namespace FSMBulb
 
         public override void OnEnter()
         {
-            Debug.Log("StateOff: OnEnter.");
+            machine.c.TurnLight(false);
+            machine.c.ChangeMaterial(machine.c.matNormal);
+            machine.c.evtTouch.AddListener(OnMouseDown);
+            //Debug.Log("StateOff: OnEnter.");
         }
 
         public override void IsState()
         {
-            if (Input.GetKeyDown("t"))
-            {
-                machine.GoToState(new StateOn(machine));
-            }
-            Debug.Log("StateOff: IsState.");
+            //if (Input.GetKeyDown("t"))
+            //{
+            //    if (machine.c.hp > 0)
+            //    {
+            //        machine.c.hp--;
+            //        machine.GoToState(new StateOn(machine));
+            //    }
+            //    else
+            //    {
+            //        machine.GoToState(new StateBroken(machine));
+            //    }
+            //}
+            //Debug.Log("StateOff: IsState.");
         }
 
         public override void OnExit()
         {
-            Debug.Log("StateOff: OnExit.");
+            machine.c.evtTouch.RemoveListener(OnMouseDown);
+            //Debug.Log("StateOff: OnExit.");
+        }
+
+        public void OnMouseDown()
+        {
+            if (machine.c.hp > 0)
+            {
+                machine.c.hp--;
+                machine.GoToState(new StateOn(machine));
+            }
+            else
+            {
+                machine.GoToState(new StateBroken(machine));
+            }
         }
     }
 }
